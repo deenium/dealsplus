@@ -1,12 +1,13 @@
 import { RxCross2 } from "react-icons/rx";
 import { RiUserAddLine } from "react-icons/ri";
 import Text from "../common/Text/Text";
+import React from "react";
 
 interface HeaderProps {
   onClose: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onClose }) => {
+export const Header: React.FC<HeaderProps> = React.memo(({ onClose }) => {
   return (
     <div className="header">
       <RiUserAddLine className="headerIcon" />
@@ -18,4 +19,4 @@ export const Header: React.FC<HeaderProps> = ({ onClose }) => {
       </button>
     </div>
   );
-};
+});
