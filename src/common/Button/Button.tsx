@@ -1,6 +1,6 @@
 import "./Button.css";
 
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "outline" | "filled";
 
 interface ButtonProps {
   variant?: ButtonVariant;
@@ -10,16 +10,16 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
+  variant = "outline",
   className = "",
   onClick = () => {},
   children,
 }) => {
   const combinedClassName = `button ${variant} ${className}`;
   return (
-    <span className={combinedClassName} onClick={onClick}>
+    <button className={combinedClassName} onClick={onClick}>
       {children}
-    </span>
+    </button>
   );
 };
 

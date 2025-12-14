@@ -4,9 +4,6 @@
 .text {
     font-family: 'Poppins', sans-serif;
     margin: 0;
-
-    /* The "Magic" line for the single-story 'g' */
-    font-feature-settings: "cv05" 1;
 }
 
 /* Variants */

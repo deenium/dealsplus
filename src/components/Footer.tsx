@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = ({ onClose, onSave, step }) => {
   return (
     <div className="footer">
       <Button onClick={onClose}>{step === 1 ? "Cancel" : "Go back"}</Button>
-      <Button variant="secondary" onClick={onSave}>
+      <Button variant="filled" onClick={onSave}>
         {step === 4 ? "Create group" : "Next"}
       </Button>
     </div>
