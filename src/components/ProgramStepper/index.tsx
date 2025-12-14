@@ -1,8 +1,10 @@
 import { StepCard, type StepCardProps } from "./StepCard";
 import "./ProgramStepper.css";
 
+export type stepType = 1 | 2 | 3 | 4;
+
 interface ProgramStepperProps {
-  step: 1 | 2 | 3 | 4;
+  step: stepType;
 }
 
 export const ProgramStepper: React.FC<ProgramStepperProps> = ({ step }) => {

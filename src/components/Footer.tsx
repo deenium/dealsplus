@@ -1,16 +1,19 @@
 import Button from "../common/Button/Button";
+import type { stepType } from "./ProgramStepper";
 
 interface FooterProps {
-  onClose: () => void;
-  onSave: () => void;
-  step: 1 | 2 | 3 | 4;
+  onBack: (step: stepType) => void;
+  onNext: (step: stepType) => void;
+  step: stepType;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onClose, onSave, step }) => {
+export const Footer: React.FC<FooterProps> = ({ onBack, onNext, step }) => {
   return (
     <div className="footer">
-      <Button onClick={onClose}>{step === 1 ? "Cancel" : "Go back"}</Button>
-      <Button variant="filled" onClick={onSave}>
+      <Button onClick={() => onBack(step)}>
+        {step === 1 ? "Cancel" : "Go back"}
+      </Button>
+      <Button variant="filled" onClick={() => onNext(step)}>
         {step === 4 ? "Create group" : "Next"}
       </Button>
     </div>
