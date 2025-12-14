@@ -1,21 +1,23 @@
+import "./Modal.css";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import "./Modal.css";
+import { ProgramStepper } from "./ProgramStepper";
 
-export type ModalProps = {
+interface ModalProps {
   onClose: () => void;
   onSave: () => void;
-};
+}
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { onClose, onSave } = props;
+  const step = 4;
   return (
     <div className="background">
       <div className="container">
         <Header onClose={onClose} />
-        <div className="bgred">Progress Stepper</div>
-        <div>Content</div>
-        <Footer onClose={onClose} step={4} onSave={onSave} />
+        <ProgramStepper step={step} />
+        <p className="pd">Content</p>
+        <Footer onClose={onClose} step={step} onSave={onSave} />
       </div>
     </div>
   );

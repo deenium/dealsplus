@@ -10,8 +10,10 @@
 }
 
 .primary {
-    color: #344054;
-    border-color: #D0D5DD;
+    /* color: #344054;
+    border-color: #D0D5DD; */
+    color: var(--color-gray700);
+    border-color: var(--color-gray300);
     border-width: 1px;
     border-style: solid;
     border-radius: 8px;
@@ -19,16 +21,19 @@
 }
 
 .primary:hover {
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
+    background-color: var(--color-gray10);
 }
 
 .secondary {
-    color: #FFFFFF;
-    background-color: #146AA3;
+    color: var(--color-white);
+    /* background-color: #146AA3; */
+    background-color: var(--color-primary600);
     border-radius: 8px;
     padding: 8px 16px;
 }
 
 .secondary:hover {
-    background-color: #0F4C81;
+    /* background-color: #0F4C81; */
+    background-color: var(--color-primary700);
 }

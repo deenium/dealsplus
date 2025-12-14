@@ -20,7 +20,7 @@
     max-height: 640px;
     min-height: 442px;
     border-radius: 12px;
-    background-color: white;
+    background-color: var(--color-white);
     display: flex;
     flex-direction: column;
 }
@@ -35,14 +35,16 @@
 
 .headerIcon {
     font-size: 24px;
-    color: #146AA3;
-    background-color: #DBEEFB;
+    /* color: #146AA3;
+    background-color: #DBEEFB; */
+    color: var(--color-primary600);
+    background-color: var(--color-primary50);
     padding: 12px;
     border-radius: 10px;
 }
 
 .headerText {
-    margin-left: 16px;
+    padding-left: 16px;
     flex: 1;
 }
 
@@ -53,7 +55,8 @@
     font-size: 20px;
     padding: 0;
     margin: 0;
-    color: #667085;
+    /* color: #667085; */
+    color: var(--color-gray500);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +68,8 @@
     justify-content: flex-end;
     padding: 20px;
     gap: 12px;
-    border-top-color: #EAECF0;
+    /* border-top-color: #EAECF0; */
+    border-top-color: var(--color-gray200);
     border-top-width: 1px;
     border-top-style: solid;
 }

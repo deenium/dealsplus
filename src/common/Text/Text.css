@@ -3,7 +3,6 @@
 /* Base style for all text */
 .text {
     font-family: 'Poppins', sans-serif;
-    color: #101828;
     margin: 0;
 
     /* The "Magic" line for the single-story 'g' */
@@ -39,20 +38,43 @@
 /* Colors */
 
 .primary {
-    color: #10537F;
+    /* color: #10537F; */
+    color: var(--color-primary700);
 }
 
 .gray-light {
-    color: #667085
+    /* color: #667085; */
+    color: var(--color-gray500)
 }
 
 .gray {
-    color: #475467
+    /* color: #475467; */
+    color: var(--color-gray600);
 }
 
 .gray-dark {
-    color: #101828;
+    /* color: #101828; */
+    color: var(--color-gray900);
 }
+
+.white {
+    color: var(--color-white);
+}
+
+/* Font Weights */
+
+.bold {
+    font-weight: 600;
+}
+
+.semi-bold {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: 400;
+}
+
 
 
 /* 

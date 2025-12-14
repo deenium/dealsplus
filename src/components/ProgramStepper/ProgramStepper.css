@@ -1,0 +1,66 @@
+.stepCard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+.programStepper {
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    /* border-color: #EAECF0; */
+    border-color: var(--color-gray200);
+    border-width: 1px 0px;
+    border-style: solid;
+    background-color: var(--color-gray10);
+    position: relative;
+    z-index: 1;
+}
+
+.stepIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0px 8px;
+}
+
+.doneIcon {
+    background-color: var(--color-primary50);
+    color: var(--color-primary600);
+}
+
+.activeIcon {
+    background-color: var(--color-gray900);
+    color: var(--color-white);
+}
+
+.pendingIcon {
+    background-color: var(--color-gray10);
+    border-color: var(--color-gray300);
+    border-width: 1px;
+    border-style: solid;
+    color: var(--color-gray300);
+}
+
+.stepCard:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    /* Vertically centers line (half of 24px icon height) */
+    left: 65%;
+    /* Starts line at center of current card */
+    width: 70%;
+    /* Stretches to center of next card */
+    height: 1px;
+    /* Thickness of the line */
+    background-color: var(--color-gray300);
+    /* Color of the line */
+    z-index: -1;
+    /* Puts line behind the icon */
+}

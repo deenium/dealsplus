@@ -11,7 +11,7 @@ export const Header: React.FC<HeaderProps> = ({ onClose }) => {
     <div className="header">
       <RiUserAddLine className="headerIcon" />
       <Text variant="xl" color="gray-dark" className="headerText">
-        Create a new permission group
+        Create a new permissions group
       </Text>
       <button onClick={onClose} className="headerButton">
         <RxCross2 />
