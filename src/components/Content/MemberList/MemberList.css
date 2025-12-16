@@ -1,0 +1,84 @@
+.MemberList {
+    padding: 0 24px;
+    margin-top: -12px;
+    /* Adjust for MemberCard padding and SearchBar padding */
+}
+
+/* MemberCard */
+.MemberCard {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray200);
+}
+
+.MemberInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2px;
+}
+
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+
+/* Hide default HTML checkbox */
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gray300);
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:hover {
+    background-color: #C6CBD5;
+}
+
+/* The Inner Circle (Knob) */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Toggle State: Checked (ON) */
+input:checked+.slider {
+    background-color: var(--color-primary600);
+}
+
+input:checked+.slider:hover {
+    background-color: var(--color-primary700);
+}
+
+input:checked+.slider:before {
+    /* Math for translation: 
+     Total Width (36) - Circle Width (16) - Left Gap (2) - Right Gap (2) = 16px 
+  */
+    transform: translateX(16px);
+}
