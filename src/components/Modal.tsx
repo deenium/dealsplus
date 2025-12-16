@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Content } from "./Content";
 import { useCallback, useState } from "react";
+import { ProgramStepper } from "./ProgramStepper";
 
 interface ModalProps {
   onClose: () => void;

@@ -1,26 +1,26 @@
 import Text from "../../common/Text/Text";
 import "./Content.css";
 
-export const GroupName = () => {
+export const Group = () => {
   return (
-    <div className="GroupName">
-      <Text variant="lg" color="gray-dark" className="GroupNameHeader">
+    <div className="Group">
+      <Text variant="lg" color="gray-dark" className="GroupHeader">
         Name your permissions group
       </Text>
-      <div className="GroupNameInputContainer">
-        <label htmlFor="group-name-input">
+      <div className="GroupInputWrapper">
+        <label htmlFor="group-input">
           <Text variant="md" color="gray-dark">
             Permissions group name
           </Text>
           <span className="RequiredAsterisk"> *</span>
         </label>
         <input
-          id="group-name-input"
+          id="group-input"
           type="required"
-          className="GroupNameInputField"
+          className="TextInputField"
           placeholder="Group name"
         />
-        <Text className="GroupNameDescription">
+        <Text color="gray">
           A descriptive name will help identify it in the future
         </Text>
       </div>
