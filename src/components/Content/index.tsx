@@ -1,6 +1,8 @@
 import { AccessTree } from "./AccessTree";
 import { Group } from "./Group";
 import { Header } from "./Header";
+import { MemberList } from "./MemberList";
+import { SearchBar } from "./SearchBar";
 
 interface ContentProps {
   step: number;
@@ -31,9 +33,9 @@ export const Content: React.FC<ContentProps> = (props) => {
             step={step}
             header={headerText[step - 2]}
             subHeader={subHeaderText[step - 2]}
-            numberOfNodes={87}
           />
-          <AccessTree step={step} />
+          <SearchBar step={step} numberOfNodes={43} />
+          {step === 4 ? <MemberList /> : <AccessTree step={step} />}
         </>
       )}
     </div>

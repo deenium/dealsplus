@@ -5,6 +5,14 @@
     flex-direction: column;
 }
 
+/* Header */
+.Header {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px 0 24px;
+}
+
+
 /* Group Name Content */
 .GroupHeader {
     margin-bottom: 20px;

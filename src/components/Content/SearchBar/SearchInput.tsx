@@ -1,5 +1,5 @@
 import { BiSearch } from "react-icons/bi";
-import "./Header.css";
+import "./SearchBar.css";
 
 interface SearchInputProps {
   step: number;

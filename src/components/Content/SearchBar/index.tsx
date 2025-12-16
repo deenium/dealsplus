@@ -1,5 +1,6 @@
 import Text from "../../../common/Text/Text";
 import { SearchInput } from "./SearchInput";
+import "./SearchBar.css";
 
 interface SearchBarProps {
   step: number;
