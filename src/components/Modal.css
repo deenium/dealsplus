@@ -16,9 +16,11 @@
 }
 
 .container {
-    width: 570px;
+    width: 616px;
+    /* width in 3 of 4 UI frames = 616 */
     max-height: 640px;
-    min-height: 442px;
+    min-height: 476px;
+    /* 464 * 616 / 600 = 476 */
     border-radius: 12px;
     background-color: var(--color-white);
     display: flex;

@@ -1,7 +1,7 @@
 import { StepCard, type StepCardProps } from "./StepCard";
 import "./ProgramStepper.css";
 
-export type stepType = 1 | 2 | 3 | 4;
+export type stepType = number;
 
 interface ProgramStepperProps {
   step: stepType;
