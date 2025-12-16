@@ -1,7 +1,6 @@
 import "./Modal.css";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { ProgramStepper, type stepType } from "./ProgramStepper";
 import { Content } from "./Content";
 import { useCallback, useState } from "react";
 
@@ -12,10 +11,10 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = (props) => {
   const { onClose, onSave } = props;
-  const [step, setStep] = useState<stepType>(1);
+  const [step, setStep] = useState<number>(1);
 
   const onNext = useCallback(
-    (step: stepType) => {
+    (step: number) => {
       if (step < 4) {
         setStep((prevStep) => prevStep + 1);
       } else {
@@ -26,7 +25,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
   );
 
   const onBack = useCallback(
-    (step: stepType) => {
+    (step: number) => {
       if (step > 1) {
         setStep((prevStep) => prevStep - 1);
       } else {

@@ -1,11 +1,10 @@
 import React from "react";
-import type { stepType } from ".";
 import Text from "../../common/Text/Text";
 import { HiCheck } from "react-icons/hi";
 
 interface StepIconProps {
   state: "done" | "active" | "pending";
-  step: stepType;
+  step: number;
 }
 
 export const StepIcon: React.FC<StepIconProps> = React.memo(

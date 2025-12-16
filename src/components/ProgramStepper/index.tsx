@@ -1,10 +1,8 @@
 import { StepCard, type StepCardProps } from "./StepCard";
 import "./ProgramStepper.css";
 
-export type stepType = number;
-
 interface ProgramStepperProps {
-  step: stepType;
+  step: number;
 }
 
 export const ProgramStepper: React.FC<ProgramStepperProps> = ({ step }) => {

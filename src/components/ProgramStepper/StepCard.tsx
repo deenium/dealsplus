@@ -1,13 +1,12 @@
 import Text from "../../common/Text/Text";
 import { StepIcon } from "./StepIcon";
 import "./ProgramStepper.css";
-import type { stepType } from ".";
 import React from "react";
 
 export interface StepCardProps {
   state: "done" | "active" | "pending";
   label: string;
-  step: stepType;
+  step: number;
 }
 
 export const StepCard: React.FC<StepCardProps> = React.memo(

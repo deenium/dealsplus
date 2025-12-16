@@ -1,10 +1,9 @@
 import Button from "../common/Button/Button";
-import type { stepType } from "./ProgramStepper";
 
 interface FooterProps {
-  onBack: (step: stepType) => void;
-  onNext: (step: stepType) => void;
-  step: stepType;
+  onBack: (step: number) => void;
+  onNext: (step: number) => void;
+  step: number;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onBack, onNext, step }) => {
