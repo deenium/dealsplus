@@ -5,11 +5,18 @@
     padding: 16px 24px;
 }
 
+
+/* Search Bar */
 .SearchBar {
     display: flex;
     flex-direction: row;
     margin-top: 16px;
     align-items: center;
+}
+
+.NumberOfNodes {
+    text-align: right;
+    flex: 1;
 }
 
 
@@ -50,9 +57,4 @@
     pointer-events: none;
     color: var(--color-gray500);
     font-size: 20px;
-}
-
-.NumberOfNodes {
-    text-align: right;
-    flex: 1;
 }

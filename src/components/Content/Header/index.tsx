@@ -1,6 +1,6 @@
 import Text from "../../../common/Text/Text";
 import "./Header.css";
-import { SearchInput } from "./SearchInput";
+import { SearchBar } from "./SearchBar";
 
 interface HeaderProps {
   step: number;
@@ -17,13 +17,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
         {header}
       </Text>
       <Text color="gray">{subHeader}</Text>
-      <div className="SearchBar">
-        <SearchInput step={step} />
-        <Text color="gray" className="NumberOfNodes">
-          {numberOfNodes}
-          {step === 2 ? " structures" : step === 3 ? " entities" : " members"}
-        </Text>
-      </div>
+      <SearchBar step={step} numberOfNodes={numberOfNodes} />
     </div>
   );
 };
