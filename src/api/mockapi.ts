@@ -78,15 +78,3 @@ export const fetchUsers = async (): Promise<User[]> => {
   await delay(DELAY_MS);
   return USERS;
 };
-
-/** Mock function to save final permissions group configuration */
-export const createPermissionGroup = async (
-  payload: any
-): Promise<{ success: boolean; message: string }> => {
-  await delay(DELAY_MS * 2); // Simulating a longer "write" operation
-
-  // Randomly simulate success or failure if you want to test error handling
-  // const isSuccess = Math.random() > 0.1;
-
-  return { success: true, message: "Permission group created successfully" };
-};
