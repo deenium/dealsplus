@@ -13,10 +13,13 @@ interface PopupProps {
 
 export const Popup: React.FC<PopupProps> = (props) => {
   const { roles, handleAccess, structure, role } = props;
-  const [access, setAccess] = useState<string>(role);
+
+  // State for the popup
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const triggerRef = useRef<HTMLDivElement>(null); // Ref for the button
-  const [coords, setCoords] = useState({ top: 0, left: 0 }); // State for position
+
+  // Ref for the button and state for position
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ top: 0, left: 0 });
 
   const togglePopup = () => {
     if (!isOpen && triggerRef.current) {
@@ -32,7 +35,6 @@ export const Popup: React.FC<PopupProps> = (props) => {
   };
 
   const onAccessChange = (newAccess: string) => {
-    setAccess(newAccess);
     setIsOpen(false);
     handleAccess(structure, newAccess);
   };
@@ -43,7 +45,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
       onClick={togglePopup}
       ref={triggerRef}
     >
-      <Text color="gray-dark">{access}</Text>
+      <Text color="gray-dark">{role}</Text>
       <FaChevronDown className="DropDownIcon" />
       {isOpen && (
         <div
@@ -59,7 +61,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
             <PopupItem
               key={option}
               option={option}
-              isSelected={option === access}
+              isSelected={option === role}
               onSelect={onAccessChange}
             />
           ))}
