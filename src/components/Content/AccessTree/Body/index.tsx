@@ -9,7 +9,9 @@ export const Body: React.FC<BodyProps> = (props) => {
   const { data } = props;
   return (
     <div className="AccessTreeBody">
-      <Row item={1} />
+      {data.map((item: any, index: number) => (
+        <Row key={index} item={item} reverseIndex={data.length - index} />
+      ))}
     </div>
   );
 };
