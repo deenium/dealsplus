@@ -1,34 +1,34 @@
-// Types based on the provided schema
+// Mock API module - simulates backend API calls with mock data and network delays
+
+// User data structure
 export interface User {
   user: string;
   email: string;
   organization: string;
 }
 
+// Entities grouped by country for a structure
 export interface EntityGroup {
   [country: string]: string[];
 }
 
-// Simulating network delay (e.g., 400ms)
+// Simulates network latency in ms
 const DELAY_MS = 200;
 
-// --- DATA CONSTANTS ---
-
+// Mock data for structures, roles, entities, and users
 const STRUCTURES = ["Phoneix", "Jupiter", "Saturn", "Pyramid", "Nile"];
-
 const STRUCTURE_ROLES = ["No access", "Basic access", "Full access"];
-
 const ENTITY_ROLES = ["No access", "Full access"];
 
+// Mock entities mapped by structure name
 const ENTITIES_BY_STRUCTURE: Record<string, EntityGroup> = {
-  // Mock data specifically for "Phoneix" as per example,
-  // falling back to generic data for others for the demo
   default: {
     England: ["Topco", "Midco"],
     Luxembourg: ["Holdco", "Google", "Meta"],
   },
 };
 
+// Mock users for group membership
 const USERS: User[] = [
   {
     user: "Ben Stockton",
@@ -39,33 +39,24 @@ const USERS: User[] = [
   { user: "Matt Wallis", email: "matt@dealsplus.io", organization: "Phoneix" },
 ];
 
-// --- HELPER ---
+// Helper function to simulate network latency
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // --- API FUNCTIONS ---
 
-/**
- * Step 2: GET /structures
- * Fetch the list of structures
- */
+/** Fetch available structures for Step 2 */
 export const fetchStructures = async (): Promise<string[]> => {
   await delay(DELAY_MS);
   return STRUCTURES;
 };
 
-/**
- * Step 2: GET /structure/roles
- * Fetch the list of roles for a structure
- */
+/** Fetch available roles for structures */
 export const fetchStructureRoles = async (): Promise<string[]> => {
   await delay(DELAY_MS);
   return STRUCTURE_ROLES;
 };
 
-/**
- * Step 3: GET /entities/{structureName}
- * Fetch entities grouped by country for a specific structure
- */
+/** Fetch entities grouped by country for a structure */
 export const fetchStructureEntities = async (
   structureName: string
 ): Promise<EntityGroup> => {
@@ -76,28 +67,19 @@ export const fetchStructureEntities = async (
   );
 };
 
-/**
- * Step 3: GET /entity/roles
- * Fetch the list of roles for an entity
- */
+/** Fetch available roles for entities */
 export const fetchEntityRoles = async (): Promise<string[]> => {
   await delay(DELAY_MS);
   return ENTITY_ROLES;
 };
 
-/**
- * Step 4: GET /users
- * Fetch the list of users to assign
- */
+/** Fetch users available for group membership in Step 4 */
 export const fetchUsers = async (): Promise<User[]> => {
   await delay(DELAY_MS);
   return USERS;
 };
 
-/**
- * Step 1/Final: POST /permission-group
- * Mock function to simulate saving the final workflow configuration
- */
+/** Mock function to save final permissions group configuration */
 export const createPermissionGroup = async (
   payload: any
 ): Promise<{ success: boolean; message: string }> => {

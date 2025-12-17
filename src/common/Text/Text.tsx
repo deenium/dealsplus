@@ -1,17 +1,14 @@
+// Reusable text component with size, color, and font-weight variants
 import React from "react";
 import type { ReactNode } from "react";
 import "./Text.css";
 
-// Define strict types for your variants
+// Supported text style variants
 type TextVariant = "xl" | "lg" | "md" | "sm";
 type ColorVariant = "primary" | "gray" | "gray-light" | "gray-dark" | "white";
 type fontWeight = "bold" | "semi-bold" | "regular";
 
 interface TextProps {
-  /**
-   * The visual style variant defined in your CSS.
-   * Defaults to 'body'.
-   */
   variant?: TextVariant;
   children: ReactNode;
   className?: string;
@@ -19,6 +16,7 @@ interface TextProps {
   fontWeight?: fontWeight;
 }
 
+// Renders styled text element with combined variant classes
 const Text: React.FC<TextProps> = ({
   variant = "md",
   className = "",
@@ -27,7 +25,7 @@ const Text: React.FC<TextProps> = ({
   children,
   ...props
 }) => {
-  // Combine base style + variant style + any custom classes passed in prop
+  // Combines all style classes (variant, color, font-weight, custom)
   const combinedClassName = `text ${variant} ${className} ${color} ${fontWeight}`;
 
   return (

@@ -1,3 +1,4 @@
+// Reusable button component with outline and filled variants
 import "./Button.css";
 
 type ButtonVariant = "outline" | "filled";
@@ -9,6 +10,7 @@ interface ButtonProps {
   children: React.ReactNode;
 }
 
+// Renders button with combined variant and custom CSS classes
 const Button: React.FC<ButtonProps> = ({
   variant = "outline",
   className = "",

@@ -1,3 +1,4 @@
+// Display table showing all saved permissions groups with their configurations
 import type { PermissionsGroupData } from "../components/Modal";
 import "./Table.css";
 
@@ -5,6 +6,7 @@ export const Table: React.FC<{ pg: PermissionsGroupData[] }> = (props) => {
   const { pg } = props;
   return (
     <>
+      {/* Only show table if permissions groups exist */}
       {pg.length > 0 && (
         <div className="SavedData">
           <h2>Saved Permissions Groups</h2>
