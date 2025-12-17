@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Modal } from "./components/Modal";
+import Button from "./common/Button/Button";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +15,13 @@ function App() {
     console.log("Saved permissions group:", permissionsGroup);
   };
 
+  // This is a simple page implementation for demonstration purposes.
+  // Main code starts from Modal component which is components folder.
   return (
     <div className="App">
-      <button className="App-button" onClick={() => setIsOpen(true)}>
+      <Button variant="filled" onClick={() => setIsOpen(true)}>
         Open Modal
-      </button>
+      </Button>
       {isOpen && <Modal onClose={onModalClose} onSave={onModalSave} />}
     </div>
   );

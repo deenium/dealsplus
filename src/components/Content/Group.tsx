@@ -19,6 +19,7 @@ export const Group = () => {
           type="required"
           className="TextInputField"
           placeholder="Group name"
+          // autoFocus={true}
         />
         <Text color="gray">
           A descriptive name will help identify it in the future
