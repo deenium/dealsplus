@@ -17,6 +17,10 @@
     background-color: var(--color-gray10);
 }
 
+.MemberCard:last-child {
+    border-bottom: none;
+}
+
 .MemberInfo {
     display: flex;
     flex-direction: column;

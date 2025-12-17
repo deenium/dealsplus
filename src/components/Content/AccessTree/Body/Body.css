@@ -17,7 +17,7 @@
     background-color: var(--color-gray10);
 }
 
-.AccessTreeRowLast {
+.AccessTreeRow:last-child {
     border-bottom: none;
 }
 
