@@ -16,9 +16,9 @@ const DELAY_MS = 200;
 
 const STRUCTURES = ["Phoneix", "Jupiter", "Saturn", "Pyramid", "Nile"];
 
-const STRUCTURE_ROLES = ["Full access", "No access", "Basic access"];
+const STRUCTURE_ROLES = ["No access", "Basic access", "Full access"];
 
-const ENTITY_ROLES = ["Full access", "No access"];
+const ENTITY_ROLES = ["No access", "Full access"];
 
 const ENTITIES_BY_STRUCTURE: Record<string, EntityGroup> = {
   // Mock data specifically for "Phoneix" as per example,
@@ -102,7 +102,6 @@ export const createPermissionGroup = async (
   payload: any
 ): Promise<{ success: boolean; message: string }> => {
   await delay(DELAY_MS * 2); // Simulating a longer "write" operation
-  console.log("Submitting Payload:", payload); // For debugging
 
   // Randomly simulate success or failure if you want to test error handling
   // const isSuccess = Math.random() > 0.1;

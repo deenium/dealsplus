@@ -1,20 +1,19 @@
-import { useState } from "react";
 import { HiCheck } from "react-icons/hi";
 
 interface CheckboxProps {
-  active?: boolean;
+  isActive?: boolean;
+  onClick?: () => void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = (props) => {
-  const { active: activeProp } = props;
-  const [active, setActive] = useState<boolean>(false);
+  const { isActive, onClick } = props;
 
   return (
     <div
-      className={`Checkbox ${active && "CheckboxActive"}`}
-      onClick={() => setActive((prev) => !prev)}
+      className={`Checkbox ${isActive && "CheckboxActive"}`}
+      onClick={onClick}
     >
-      {active && <HiCheck className="CheckboxIcon" />}
+      {isActive && <HiCheck className="CheckboxIcon" />}
     </div>
   );
 };

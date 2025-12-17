@@ -12,7 +12,6 @@ function App() {
 
   const onModalSave = (permissionsGroup: any) => {
     setIsOpen(false);
-    console.log("Saved permissions group:", permissionsGroup);
   };
 
   // This is a simple page implementation for demonstration purposes.

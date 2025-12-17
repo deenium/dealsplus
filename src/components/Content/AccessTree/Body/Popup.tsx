@@ -1,16 +1,22 @@
 import { FaChevronDown } from "react-icons/fa6";
 import Text from "../../../../common/Text/Text";
-import { useState, useRef } from "react";
-import { HiCheck } from "react-icons/hi";
+import React, { useState, useRef } from "react";
 import "./Body.css";
+import { PopupItem } from "./PopupItem";
 
-export const Popup = () => {
-  const [access, setAccess] = useState<string>("No Access");
+interface PopupProps {
+  roles: string[];
+  handleAccess: (structure: string, role: string) => void;
+  structure: string;
+  role: string;
+}
+
+export const Popup: React.FC<PopupProps> = (props) => {
+  const { roles, handleAccess, structure, role } = props;
+  const [access, setAccess] = useState<string>(role);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const triggerRef = useRef<HTMLDivElement>(null); // Ref for the button
   const [coords, setCoords] = useState({ top: 0, left: 0 }); // State for position
-
-  const options = ["No Access", "Basic Access", "Full Access"];
 
   const togglePopup = () => {
     if (!isOpen && triggerRef.current) {
@@ -24,6 +30,13 @@ export const Popup = () => {
     }
     setIsOpen(!isOpen);
   };
+
+  const onAccessChange = (newAccess: string) => {
+    setAccess(newAccess);
+    setIsOpen(false);
+    handleAccess(structure, newAccess);
+  };
+
   return (
     <div
       className="AccessTreeRole Popup"
@@ -39,24 +52,16 @@ export const Popup = () => {
             position: "fixed",
             top: `${coords.top}px`,
             left: `${coords.left}px`,
-            // Ensure z-index is higher than Footer
             zIndex: 9999,
           }}
         >
-          {options.map((option) => (
-            <div
-              className={`PopupItem ${
-                option === access && "SelectedPopupItem"
-              }`}
+          {roles.map((option) => (
+            <PopupItem
               key={option}
-              onClick={() => {
-                setAccess(option);
-                setIsOpen(false);
-              }}
-            >
-              <Text color="gray-dark">{option}</Text>
-              {option === access && <HiCheck className="CheckIcon" />}
-            </div>
+              option={option}
+              isSelected={option === access}
+              onSelect={onAccessChange}
+            />
           ))}
         </div>
       )}

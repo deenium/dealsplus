@@ -12,7 +12,7 @@ interface ModalProps {
 
 export interface PermissionsGroupData {
   name: string;
-  structureAccess: Record<string, boolean>; // For Step 2, related to AccessTree results
+  structureAccess: Record<string, string>; // For Step 2, related to AccessTree results
   entityAccess: Record<string, boolean>; // For Step 3, related to AccessTree results
   members: string[]; // For Step 4, related to MemberList selections
 }
@@ -67,7 +67,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [onClose]
   );
 
-  console.log("Modal Render - Current Form Data:", formData);
   return (
     <div className="background">
       <div className="container">
