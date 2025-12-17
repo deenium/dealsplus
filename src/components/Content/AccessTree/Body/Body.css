@@ -1,0 +1,15 @@
+/* Body */
+.AccessTreeBody {
+    background-color: red;
+    overflow: scroll;
+}
+
+/* Row */
+.AccessTreeRow {
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--color-gray200);
+}

@@ -54,9 +54,3 @@
 .RequiredAsterisk {
     color: red;
 }
-
-/* AccessTree */
-.AccessTree {
-    background-color: red;
-    flex: 1,
-}
