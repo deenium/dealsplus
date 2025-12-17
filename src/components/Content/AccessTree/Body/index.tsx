@@ -7,7 +7,6 @@ interface BodyProps {
 
 export const Body: React.FC<BodyProps> = (props) => {
   const { data } = props;
-  console.log("data", data);
   return (
     <div className="AccessTreeBody">
       <Row item={1} />
