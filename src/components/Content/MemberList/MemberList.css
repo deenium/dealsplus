@@ -13,6 +13,10 @@
     border-bottom: 1px solid var(--color-gray200);
 }
 
+.MemberCard:hover {
+    background-color: var(--color-gray10);
+}
+
 .MemberInfo {
     display: flex;
     flex-direction: column;
