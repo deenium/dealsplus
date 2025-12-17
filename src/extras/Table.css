@@ -1,0 +1,40 @@
+.permissions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.permissions-table th,
+.permissions-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.permissions-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Formats the JSON blocks to be readable */
+pre {
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0;
+}
+
+.member-tag {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px;
+    font-size: 0.8rem;
+}
