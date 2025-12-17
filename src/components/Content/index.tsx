@@ -14,6 +14,7 @@ export const Content: React.FC<ContentProps> = (props) => {
   const { step } = props;
   const [members, setMembers] = useState<User[]>([]);
   const [structures, setStructures] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const headerText = [
     "Which structures would you like to grant access to?",
@@ -44,6 +45,29 @@ export const Content: React.FC<ContentProps> = (props) => {
     }
   }, [step]);
 
+  // On Search Input
+  useEffect(() => {
+    if (step === 4) {
+      fetchUsers().then((users) => {
+        setMembers(
+          users.filter((user) =>
+            user.user.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        );
+      });
+    } else if (step === 1) {
+      return;
+    } else {
+      fetchStructures().then((structures) => {
+        setStructures(
+          structures.filter((structure) =>
+            structure.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        );
+      });
+    }
+  }, [searchTerm, step]);
+
   return (
     <div className="Content">
       {step === 1 ? (
@@ -55,7 +79,12 @@ export const Content: React.FC<ContentProps> = (props) => {
             header={headerText[step - 2]}
             subHeader={subHeaderText[step - 2]}
           />
-          <SearchBar step={step} numberOfNodes={43} />
+          <SearchBar
+            step={step}
+            numberOfNodes={step === 4 ? members.length : structures.length}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+          />
           {step === 4 ? (
             <MemberList members={members} />
           ) : (
