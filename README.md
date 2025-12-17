@@ -12,7 +12,7 @@ The application provides a 4-step modal workflow for creating permissions groups
 
 1. **Step 1: Group Naming** - User defines the permissions group name
 2. **Step 2: Structure Access** - User selects structures and assigns access roles
-3. **Step 3: Entity Access** - User selects entities within structures and assigns roles
+3. **Step 3: Entity Access** - Skipped this
 4. **Step 4: Member Assignment** - User adds group members from a user directory
 
 ### Key Features
@@ -20,17 +20,13 @@ The application provides a 4-step modal workflow for creating permissions groups
 **Multi-Step Workflow**
 
 - Linear progression through 4 configurable steps
-- Validation at each step (Step 1 requires non-empty group name)
+- Validation at Step 1 (requires non-empty group name)
 - Back/forward navigation with cancel option
 - Visual step indicator with progress tracking
 
 **Hierarchical Access Control**
 
 - Structures represent top-level organizational units
-- Entities are grouped by country within structures
-- Two-tier role assignment system:
-  - Structure roles: No access, Basic access, Full access
-  - Entity roles: No access, Full access
 - Checkbox-based selection with dropdown role selectors
 
 **Member Management**
@@ -38,7 +34,6 @@ The application provides a 4-step modal workflow for creating permissions groups
 - Add/remove users from permissions groups
 - Toggle-based member selection
 - User information display (name, email, organization)
-- Optional member assignment (can skip and add later)
 
 **Data Persistence & Display**
 
@@ -86,7 +81,7 @@ src/
 │   │   │   └── Toggle.tsx     # Toggle switch component
 │   │   └── SearchBar/         # Filter across all steps
 │   │       ├── index.tsx      # Search bar container
-│   │       └── SearchInput.tsx # Search input with 50-char limit
+│   │       └── SearchInput.tsx # Search input
 │   └── ProgramStepper/        # Visual progress indicator
 │       ├── index.tsx          # Stepper container
 │       ├── StepCard.tsx       # Individual step display
@@ -233,18 +228,17 @@ interface EntityGroup {
 
 ### Step-Specific Behavior
 
-| Step | Component  | Primary Action                  | Data Output               | Validation                       |
-| ---- | ---------- | ------------------------------- | ------------------------- | -------------------------------- |
-| 1    | Group      | Input group name                | `name: string`            | Non-empty required               |
-| 2    | AccessTree | Select structures, assign roles | `structureAccess: Record` | At least 1 structure             |
-| 3    | AccessTree | Select entities, assign roles   | `entityAccess: Record`    | Optional (inherited from Step 2) |
-| 4    | MemberList | Toggle member selection         | `members: string[]`       | Optional (can skip)              |
+| Step | Component  | Primary Action                  | Data Output               | Validation          |
+| ---- | ---------- | ------------------------------- | ------------------------- | ------------------- |
+| 1    | Group      | Input group name                | `name: string`            | Non-empty required  |
+| 2    | AccessTree | Select structures, assign roles | `structureAccess: Record` | Optional (can skip) |
+| 3    | AccessTree | Select entities, assign roles   | `entityAccess: Record`    | Optional (can skip) |
+| 4    | MemberList | Toggle member selection         | `members: string[]`       | Optional (can skip) |
 
 ### Search & Filtering
 
 - Implemented at Content level for Steps 2-4
 - Filters structures/entities/members by case-insensitive substring match
-- Character limit: 50 characters max
 - Results counter updates dynamically
 
 ### API Layer (`mockapi.ts`)
