@@ -16,7 +16,7 @@ export const AccessTree: React.FC<AccessTreeProps> = (props) => {
   return (
     <div className="AccessTree">
       {/* Header title changes based on step: "Structure" for Step 2, "Entity" for Step 3 */}
-      <Header title={step === 3 ? "Entity" : "Structure"} />
+      <Header title={step === 3 ? "Entity" : "Structure"} {...props} />
       <Body {...props} />
     </div>
   );
