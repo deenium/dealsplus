@@ -8,9 +8,11 @@ interface MemberListProps {
   updateFormData: (updates: Partial<PermissionsGroupData>) => void;
 }
 
+// Step 4: List of users that can be added to the permissions group
 export const MemberList: React.FC<MemberListProps> = (props) => {
   const { members, formData, updateFormData } = props;
 
+  // Toggles member selection - adds or removes from group
   const handleToggle = (email: string) => {
     if (formData.members.includes(email)) {
       // Remove member

@@ -1,5 +1,6 @@
 import "./MemberList.css";
 
+// Toggle switch component for member selection
 interface ToggleProps {
   isOn: boolean;
   handleToggle: () => void;

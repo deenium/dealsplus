@@ -3,6 +3,7 @@ import Text from "../../../common/Text/Text";
 import { Toggle } from "./Toggle";
 import "./MemberList.css";
 
+// Individual member card with user info and toggle button
 interface MemberCardProps {
   user: User;
   isToggled: boolean;
