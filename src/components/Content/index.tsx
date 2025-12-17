@@ -19,6 +19,7 @@ export const Content: React.FC<ContentProps> = (props) => {
   const [structures, setStructures] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
+  // Step-specific header and subheader text
   const headerText = [
     "Which structures would you like to grant access to?",
     "Which entities would you like to grant access to?",
@@ -78,7 +79,6 @@ export const Content: React.FC<ContentProps> = (props) => {
       ) : (
         <>
           <Header
-            step={step}
             header={headerText[step - 2]}
             subHeader={subHeaderText[step - 2]}
           />

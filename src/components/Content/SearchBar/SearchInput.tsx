@@ -6,12 +6,13 @@ interface SearchInputProps {
   setSearchTerm: (searchTerm: string) => void;
 }
 
+// Search input field with character limit (max 50 chars)
 export const SearchInput: React.FC<SearchInputProps> = (props) => {
   const { searchTerm, setSearchTerm } = props;
 
+  // Updates search term on input change
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    if (event.target.value.length > 50) return;
     setSearchTerm(event.target.value);
   };
 

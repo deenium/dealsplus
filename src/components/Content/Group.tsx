@@ -2,6 +2,7 @@ import Text from "../../common/Text/Text";
 import type { PermissionsGroupData } from "../Modal";
 import "./Content.css";
 
+// Step 1: Group name input component
 interface GroupProps {
   formData: PermissionsGroupData;
   updateFormData: (updates: Partial<PermissionsGroupData>) => void;
@@ -10,6 +11,7 @@ interface GroupProps {
 export const Group: React.FC<GroupProps> = (props) => {
   const { formData, updateFormData } = props;
 
+  // Updates group name in form data
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     updateFormData({ name: e.target.value });
