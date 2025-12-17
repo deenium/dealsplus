@@ -5,13 +5,16 @@ import { Header } from "./Header";
 import { MemberList } from "./MemberList";
 import { SearchBar } from "./SearchBar";
 import { fetchStructures, fetchUsers, type User } from "../../api/mockapi";
+import type { PermissionsGroupData } from "../Modal";
 
 interface ContentProps {
   step: number;
+  formData: PermissionsGroupData;
+  updateFormData: (updates: Partial<PermissionsGroupData>) => void;
 }
 
 export const Content: React.FC<ContentProps> = (props) => {
-  const { step } = props;
+  const { step, formData, updateFormData } = props;
   const [members, setMembers] = useState<User[]>([]);
   const [structures, setStructures] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -71,7 +74,7 @@ export const Content: React.FC<ContentProps> = (props) => {
   return (
     <div className="Content">
       {step === 1 ? (
-        <Group />
+        <Group formData={formData} updateFormData={updateFormData} />
       ) : (
         <>
           <Header
