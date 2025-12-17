@@ -9,8 +9,8 @@ export interface EntityGroup {
   [country: string]: string[];
 }
 
-// Simulating network delay (e.g., 800ms)
-const DELAY_MS = 800;
+// Simulating network delay (e.g., 400ms)
+const DELAY_MS = 400;
 
 // --- DATA CONSTANTS ---
 

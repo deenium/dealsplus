@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MemberCard } from "./MemberCard";
+import { fetchUsers, type User } from "../../../api/mockapi";
 
 export const MemberList: React.FC = () => {
-  const [members, setMembers] = useState([1, 2, 3, 4]);
-  const user = {
-    user: "Ben Stockton",
-    email: "ben@dealsplus.io",
-    organization: "Dealsplus",
-  };
+  const [members, setMembers] = useState<User[]>([]);
+  useEffect(() => {
+    fetchUsers().then((users) => {
+      setMembers(users);
+    });
+  }, []);
+
   return (
     <div className="MemberList">
-      {members.map(() => (
-        <MemberCard user={user} />
+      {members.map((user, index) => (
+        <MemberCard key={`Member_Card_Item_${index}`} user={user} />
       ))}
     </div>
   );
