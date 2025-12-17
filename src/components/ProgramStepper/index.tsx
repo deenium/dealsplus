@@ -6,8 +6,10 @@ interface ProgramStepperProps {
   step: number;
 }
 
+// Visual step indicator showing progress through 4-step workflow
 export const ProgramStepper: React.FC<ProgramStepperProps> = React.memo(
   ({ step }) => {
+    // Determines state of each step: done (completed), active (current), or pending (not yet reached)
     const obtainState = (
       currentStep: number
     ): "done" | "active" | "pending" => {

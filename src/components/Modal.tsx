@@ -5,11 +5,13 @@ import { Content } from "./Content";
 import { useCallback, useState } from "react";
 import { ProgramStepper } from "./ProgramStepper";
 
+// Main modal component - manages 4-step permissions group creation workflow
 interface ModalProps {
   onClose: () => void;
   onSave: (permissionsGroup: PermissionsGroupData) => void;
 }
 
+// Data structure for permissions group (shared across all steps)
 export interface PermissionsGroupData {
   name: string;
   structureAccess: Record<string, string>; // For Step 2, related to AccessTree results
@@ -27,7 +29,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     members: [],
   });
 
-  // Updates form data with partial updates
+  // Merges partial updates into existing form data
   const updateFormData = useCallback(
     (updates: Partial<PermissionsGroupData>) => {
       setFormData((prev) => ({ ...prev, ...updates }));
@@ -35,7 +37,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     []
   );
 
-  // Handles Next button click
+  // Advances to next step with validation (Step 1 requires group name)
   const onNext = useCallback(
     (currentStep: number) => {
       switch (currentStep) {
@@ -58,7 +60,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [formData, onSave]
   );
 
-  // Handles Back button click
+  // Goes to previous step or closes modal if on Step 1
   const onBack = useCallback(
     (currentStep: number) => {
       if (currentStep > 1) setStep((prev) => prev - 1);

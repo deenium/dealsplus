@@ -9,6 +9,7 @@ export interface StepCardProps {
   step: number;
 }
 
+// Individual step card showing number/checkmark and label
 export const StepCard: React.FC<StepCardProps> = React.memo(
   ({ state, label, step }) => {
     return (

@@ -7,11 +7,13 @@ interface StepIconProps {
   step: number;
 }
 
+// Step icon showing checkmark when done, step number otherwise
 export const StepIcon: React.FC<StepIconProps> = React.memo(
   ({ state, step }) => {
     const iconStyle = `${state}Icon`;
     return (
       <span className={`stepIcon ${iconStyle}`}>
+        {/* Shows checkmark for completed steps, number for active/pending steps */}
         {state === "done" ? (
           <HiCheck />
         ) : (

@@ -3,6 +3,7 @@ import { RiUserAddLine } from "react-icons/ri";
 import Text from "../common/Text/Text";
 import React from "react";
 
+// Modal header with title and close button
 interface HeaderProps {
   onClose: () => void;
 }

@@ -1,5 +1,6 @@
 import Button from "../common/Button/Button";
 
+// Modal footer with Back and Next buttons
 interface FooterProps {
   onBack: (step: number) => void;
   onNext: (step: number) => void;
