@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
+import type { User } from "../../../api/mockapi";
 import { MemberCard } from "./MemberCard";
-import { fetchUsers, type User } from "../../../api/mockapi";
 
-export const MemberList: React.FC = () => {
-  const [members, setMembers] = useState<User[]>([]);
-  useEffect(() => {
-    fetchUsers().then((users) => {
-      setMembers(users);
-    });
-  }, []);
+interface MemberListProps {
+  members: User[];
+}
+
+export const MemberList: React.FC<MemberListProps> = (props) => {
+  const { members = [] } = props;
 
   return (
     <div className="MemberList">

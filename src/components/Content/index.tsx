@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import { AccessTree } from "./AccessTree";
 import { Group } from "./Group";
 import { Header } from "./Header";
 import { MemberList } from "./MemberList";
 import { SearchBar } from "./SearchBar";
+import { fetchStructures, fetchUsers, type User } from "../../api/mockapi";
 
 interface ContentProps {
   step: number;
@@ -10,6 +12,8 @@ interface ContentProps {
 
 export const Content: React.FC<ContentProps> = (props) => {
   const { step } = props;
+  const [members, setMembers] = useState<User[]>([]);
+  const [structures, setStructures] = useState<string[]>([]);
 
   const headerText = [
     "Which structures would you like to grant access to?",
@@ -23,6 +27,23 @@ export const Content: React.FC<ContentProps> = (props) => {
     "You can skip this and add members later if you wish",
   ];
 
+  // Fetches data based on the current step
+  // Step 2 & 3: Fetch structures
+  // Step 4: Fetch users
+  useEffect(() => {
+    if (step === 4) {
+      fetchUsers().then((users) => {
+        setMembers(users);
+      });
+    } else if (step === 1) {
+      return;
+    } else {
+      fetchStructures().then((data) => {
+        setStructures(data);
+      });
+    }
+  }, [step]);
+
   return (
     <div className="Content">
       {step === 1 ? (
@@ -35,7 +56,11 @@ export const Content: React.FC<ContentProps> = (props) => {
             subHeader={subHeaderText[step - 2]}
           />
           <SearchBar step={step} numberOfNodes={43} />
-          {step === 4 ? <MemberList /> : <AccessTree step={step} />}
+          {step === 4 ? (
+            <MemberList members={members} />
+          ) : (
+            <AccessTree step={step} structures={structures} />
+          )}
         </>
       )}
     </div>

@@ -10,7 +10,7 @@ export interface EntityGroup {
 }
 
 // Simulating network delay (e.g., 400ms)
-const DELAY_MS = 400;
+const DELAY_MS = 200;
 
 // --- DATA CONSTANTS ---
 

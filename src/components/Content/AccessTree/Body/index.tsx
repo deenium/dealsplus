@@ -2,15 +2,15 @@ import { Row } from "./Row";
 import "./Body.css";
 
 interface BodyProps {
-  data: any;
+  data: string[];
 }
 
 export const Body: React.FC<BodyProps> = (props) => {
   const { data } = props;
   return (
     <div className="AccessTreeBody">
-      {data.map((item: any, index: number) => (
-        <Row key={index} item={item} reverseIndex={data.length - index} />
+      {data.map((item: string, index: number) => (
+        <Row key={index} title={item} index={data.length - index} />
       ))}
     </div>
   );
