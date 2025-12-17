@@ -3,6 +3,7 @@ import Text from "../../../../common/Text/Text";
 import "./Body.css";
 import { HiCheck } from "react-icons/hi";
 
+// Individual role option in dropdown with selection indicator
 interface PopupItemProps {
   option: string;
   isSelected: boolean;

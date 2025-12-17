@@ -1,5 +1,6 @@
 import { HiCheck } from "react-icons/hi";
 
+// Checkbox component with optional active state and click handler
 interface CheckboxProps {
   isActive?: boolean;
   onClick?: () => void;

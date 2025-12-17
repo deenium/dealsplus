@@ -10,10 +10,12 @@ interface AccessTreeProps {
   updateFormData: (updates: Partial<PermissionsGroupData>) => void;
 }
 
+// Steps 2 & 3: Hierarchical access control tree (Structures or Entities)
 export const AccessTree: React.FC<AccessTreeProps> = (props) => {
   const { step } = props;
   return (
     <div className="AccessTree">
+      {/* Header title changes based on step: "Structure" for Step 2, "Entity" for Step 3 */}
       <Header title={step === 3 ? "Entity" : "Structure"} />
       <Body {...props} />
     </div>

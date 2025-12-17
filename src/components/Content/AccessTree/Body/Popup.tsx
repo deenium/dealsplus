@@ -11,16 +11,15 @@ interface PopupProps {
   role: string;
 }
 
+// Dropdown popup for role selection with dynamic positioning
 export const Popup: React.FC<PopupProps> = (props) => {
   const { roles, handleAccess, structure, role } = props;
 
-  // State for the popup
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  // Ref for the button and state for position
   const triggerRef = useRef<HTMLDivElement>(null);
   const [coords, setCoords] = useState({ top: 0, left: 0 });
 
+  // Toggles popup visibility and calculates position relative to trigger button
   const togglePopup = () => {
     if (!isOpen && triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
@@ -34,6 +33,7 @@ export const Popup: React.FC<PopupProps> = (props) => {
     setIsOpen(!isOpen);
   };
 
+  // Handles role selection and closes popup
   const onAccessChange = (newAccess: string) => {
     setIsOpen(false);
     handleAccess(structure, newAccess);

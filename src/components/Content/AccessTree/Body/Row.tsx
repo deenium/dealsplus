@@ -14,9 +14,11 @@ interface RowProps {
   roles: string[];
 }
 
+// Row item in AccessTree with checkbox, name, and role selector
 export const Row: React.FC<RowProps> = (props) => {
   const { structure, handleAccess, role, roles, isActive } = props;
 
+  // Toggles checkbox: selects with "Full access" or deselects with "No access"
   const onCheckBoxClick = () => {
     if (isActive) {
       handleAccess(structure, "No access");

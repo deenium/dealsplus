@@ -11,23 +11,28 @@ interface BodyProps {
   updateFormData: (updates: Partial<PermissionsGroupData>) => void;
 }
 
+// AccessTree body - renders rows for each structure/entity with role selection
 export const Body: React.FC<BodyProps> = (props) => {
   const { step, structures, formData, updateFormData } = props;
 
   const [roles, setRoles] = useState<string[]>([]);
 
+  // Updates access level for a structure; removes if set to "No access"
   const handleAccess = (structure: string, accessLevel: string) => {
     const updatedAccess = { ...formData.structureAccess };
     if (accessLevel === "No access") {
+      // Remove structure from formData
       delete updatedAccess[structure];
       updateFormData({ structureAccess: updatedAccess });
     } else {
+      // Add/update structure with new access level
       updateFormData({
         structureAccess: { ...updatedAccess, [structure]: accessLevel },
       });
     }
   };
 
+  // Fetches available roles for structures/entities
   useEffect(() => {
     if (roles.length > 0) return;
     fetchStructureRoles().then((accessRoles) => {
