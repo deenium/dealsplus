@@ -89,9 +89,18 @@ export const Content: React.FC<ContentProps> = (props) => {
             setSearchTerm={setSearchTerm}
           />
           {step === 4 ? (
-            <MemberList members={members} />
+            <MemberList
+              members={members}
+              formData={formData}
+              updateFormData={updateFormData}
+            />
           ) : (
-            <AccessTree step={step} structures={structures} />
+            <AccessTree
+              step={step}
+              structures={structures}
+              formData={formData}
+              updateFormData={updateFormData}
+            />
           )}
         </>
       )}

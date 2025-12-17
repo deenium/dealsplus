@@ -67,6 +67,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     [onClose]
   );
 
+  console.log("Modal Render - Current Form Data:", formData);
   return (
     <div className="background">
       <div className="container">

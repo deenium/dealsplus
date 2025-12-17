@@ -2,16 +2,16 @@ import type { User } from "../../../api/mockapi";
 import Text from "../../../common/Text/Text";
 import { Toggle } from "./Toggle";
 import "./MemberList.css";
-import { useState } from "react";
 
 interface MemberCardProps {
   user: User;
+  isToggled: boolean;
+  handleToggle: (value: string) => void;
 }
 
 export const MemberCard: React.FC<MemberCardProps> = (props) => {
-  const { user } = props;
+  const { user, isToggled, handleToggle } = props;
 
-  const [isToggled, setIsToggled] = useState(false);
   return (
     <div className="MemberCard">
       <div className="MemberInfo">
@@ -20,7 +20,7 @@ export const MemberCard: React.FC<MemberCardProps> = (props) => {
           {`${user.email}  •  ${user.organization}`}
         </Text>
       </div>
-      <Toggle isOn={isToggled} handleToggle={() => setIsToggled(!isToggled)} />
+      <Toggle isOn={isToggled} handleToggle={() => handleToggle(user.email)} />
     </div>
   );
 };
